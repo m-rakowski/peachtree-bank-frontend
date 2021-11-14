@@ -1,0 +1,35 @@
+<div class="box">
+  <header class="modal-header">
+    <img src="assets/text-bullet-list-svgrepo-com.svg" class="icon" />
+    Transactions <strong>List</strong>
+  </header>
+  <section class="main-section">
+    <app-filter (inputChange)="search($event)"></app-filter>
+    <ng-container
+      *ngFor="let item of itemsFiltered; index as i; trackBy: trackByFn"
+    >
+      <div
+        class="item"
+        [style]="'border-left-color: ' + asItem(item).categoryCode"
+      >
+        <app-transaction-item>
+          <div data-test-hook="transactionDate" class="transaction-date">
+            {{ asItem(item).dates.valueDate | date: "MMM. d" }}
+          </div>
+          <div data-test-hook="transactionMerchantName">
+            {{ asItem(item).merchant.name }}
+          </div>
+          <div data-test-hook="transactionType">
+            {{ asItem(item).transaction.type }}
+          </div>
+          <div data-test-hook="transactionAmount">
+            {{
+              asItem(item).transaction.amountCurrency.amount
+                | currency: asItem(item).transaction.amountCurrency.currencyCode
+            }}
+          </div>
+        </app-transaction-item>
+      </div>
+    </ng-container>
+  </section>
+</div>

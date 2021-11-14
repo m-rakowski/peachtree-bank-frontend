@@ -1,0 +1,27 @@
+strong {
+  margin-left: 0.6rem;
+}
+
+.item {
+  border-left: 0.4rem solid black;
+  margin: 1.2rem 0;
+}
+
+div[data-test-hook="transactionDate"] {
+  font-size: 0.6rem;
+  padding: 0.6rem;
+}
+
+div[data-test-hook="transactionMerchantName"] {
+  font-size: 1.5rem;
+}
+
+div[data-test-hook="transactionType"] {
+  color: gray;
+}
+
+app-transaction-item {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}

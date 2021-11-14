@@ -1,0 +1,25 @@
+.bg-image {
+  background-image: url("~src/assets/background.jpg");
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(4px);
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.app-container {
+  margin: 2.2rem auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: 40rem) {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,12 @@
+<header>Review Transfer</header>
+<h2>Are you ready to send out this transfer?</h2>
+
+<p>It will be sent to account:</p>
+<p>{{ data.toAccount }}</p>
+<p>With the amount of:</p>
+<p>{{ data.amount }}</p>
+
+<button class="btn btn-secondary" mat-dialog-close>Close</button>
+<button class="btn btn-primary" (click)="submit()" mat-dialog-close>
+  Send transfer
+</button>

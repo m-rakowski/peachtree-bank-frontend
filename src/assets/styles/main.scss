@@ -1,0 +1,47 @@
+@import "~src/assets/styles/vars";
+@import "buttons";
+
+body {
+  font: normal 0.6rem Verdana, Arial, sans-serif;
+  font-weight: 200;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.modal-header {
+  background-color: $primary-blue;
+  min-height: 1.2rem;
+  border-radius: 1.1rem 1.1rem 0 0;
+  padding: 1.2rem 0;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    height: 1.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+}
+
+.main-section {
+  background-color: white;
+  border-radius: 0 0 0.9rem 0.9rem;
+  padding: 0.6rem;
+}
+
+.box {
+  margin: 0.6rem;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.merchant-details {
+  flex: 2;
+}
