@@ -2,8 +2,9 @@
 @import "buttons";
 
 body {
-  font: normal 0.6rem Verdana, Arial, sans-serif;
-  font-weight: 200;
+  font-family: "Roboto", Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 body,
@@ -14,12 +15,16 @@ html {
 
 .modal-header {
   background-color: $primary-blue;
-  min-height: 1.2rem;
+  min-height: 3rem;
   border-radius: 1.1rem 1.1rem 0 0;
-  padding: 1.2rem 0;
   color: white;
   display: flex;
   align-items: center;
+  font-size: 1.3em;
+
+  .modal-title {
+    word-spacing: $small-spacing;
+  }
 
   .icon {
     height: 1.5rem;

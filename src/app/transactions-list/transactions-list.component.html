@@ -1,7 +1,7 @@
 <div class="box">
   <header class="modal-header">
-    <img src="assets/text-bullet-list-svgrepo-com.svg" class="icon" />
-    Transactions <strong>List</strong>
+    <img src="assets/text-bullet-list-svgrepo-com.svg" class="icon"/>
+    <span class="modal-title">Transactions <strong>List</strong></span>
   </header>
   <section class="main-section">
     <app-filter (inputChange)="search($event)"></app-filter>
@@ -24,8 +24,8 @@
           </div>
           <div data-test-hook="transactionAmount">
             {{
-              asItem(item).transaction.amountCurrency.amount
-                | currency: asItem(item).transaction.amountCurrency.currencyCode
+            asItem(item).transaction.amountCurrency.amount
+              | currency: asItem(item).transaction.amountCurrency.currencyCode
             }}
           </div>
         </app-transaction-item>
