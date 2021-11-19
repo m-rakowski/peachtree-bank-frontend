@@ -29,7 +29,12 @@
           <div data-test-hook="transactionType">
             {{ asItem(item).transaction.type }}
           </div>
-          <div data-test-hook="transactionAmount">
+          <div
+            data-test-hook="transactionAmount"
+            [appColorRedOrGreen]="
+              asItem(item).transaction?.amountCurrency?.amount
+            "
+          >
             {{
               asItem(item).transaction?.amountCurrency?.amount
                 | currency
