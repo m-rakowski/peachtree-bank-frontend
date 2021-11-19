@@ -52,4 +52,10 @@ body {
   .mat-dialog-container {
     padding: 0;
   }
+
+  @media only screen and (min-width: 40rem) {
+    .cdk-overlay-pane {
+      min-width: 30rem;
+    }
+  }
 }

@@ -8,13 +8,3 @@ input {
   width: 100%;
   box-sizing: border-box;
 }
-
-.hasErrors {
-  border: 1px solid $errorColor;
-}
-
-.error-message {
-  color: $errorColor;
-  margin: 0.2rem 0;
-  font-size: 0.6rem;
-}

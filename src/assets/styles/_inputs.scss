@@ -25,3 +25,14 @@ label {
   font-weight: 300;
   font-size: 1.1rem;
 }
+
+.error-message {
+  color: $errorColor;
+  margin: 0.4rem 0;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+}
+
+.hasErrors {
+  border: 1px solid $errorColor;
+}
