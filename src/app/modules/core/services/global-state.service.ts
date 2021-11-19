@@ -17,6 +17,10 @@ export class GlobalStateService {
 
   private _transfers: BehaviorSubject<Transfer[]> = new BehaviorSubject([]);
 
+  get transfers(): Observable<Transfer[]> {
+    return this._transfers.asObservable();
+  }
+
   private _account: BehaviorSubject<AccountAmountCurrency> =
     new BehaviorSubject({
       amount: 0,
@@ -25,10 +29,6 @@ export class GlobalStateService {
 
   get account(): Observable<AccountAmountCurrency> {
     return this._account.asObservable();
-  }
-
-  get transfers(): Observable<Transfer[]> {
-    return this._transfers.asObservable();
   }
 
   setAccount(value: AccountAmountCurrency) {

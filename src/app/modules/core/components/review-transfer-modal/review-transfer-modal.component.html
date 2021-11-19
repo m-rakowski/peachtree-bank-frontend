@@ -4,9 +4,9 @@
 <p>It will be sent to account:</p>
 <p>{{ data.toAccount }}</p>
 <p>With the amount of:</p>
-<p>{{ data.account.amount }} {{data.account.currencyCode}}</p>
+<p>{{ data.account.amount }} {{ data.account.currencyCode }}</p>
 
 <button class="btn btn-secondary" mat-dialog-close>Close</button>
-<button class="btn btn-primary" (click)="submit()" mat-dialog-close>
+<button (click)="submit()" class="btn btn-primary" mat-dialog-close>
   Send transfer
 </button>

@@ -1,13 +1,23 @@
-<label [for]="fieldName">{{fieldTitle}}</label>
+<label [for]="fieldName">{{ fieldTitle }}</label>
 <div style="display: flex">
-
   <select [formControl]="currencyControl">
     <ng-container *ngFor="let currencyCode of currencyCodes">
-      <option [value]="currencyCode">{{getCurrencySymbol(currencyCode, "narrow")}}</option>
+      <option [value]="currencyCode">
+        {{ getCurrencySymbol(currencyCode, "narrow") }}
+      </option>
     </ng-container>
   </select>
-  <input type="number" step=".01" pattern="^\d*(\.\d{0,2})?$" [id]="fieldName" [name]="fieldName"
-         [formControl]="control" [ngClass]="{'hasErrors':control.errors && this.control.touched }"
-         [placeholder]="placeholder"
-  ></div>
-<p *ngIf="control.errors && this.control.touched" class="error-message">{{control.errors|errorsPipe}}</p>
+  <input
+    [formControl]="control"
+    [id]="fieldName"
+    [name]="fieldName"
+    [ngClass]="{ hasErrors: control.errors && this.control.touched }"
+    [placeholder]="placeholder"
+    pattern="^\d*(\.\d{0,2})?$"
+    step=".01"
+    type="number"
+  />
+</div>
+<p *ngIf="control.errors && this.control.touched" class="error-message">
+  {{ control.errors | errorsPipe }}
+</p>
