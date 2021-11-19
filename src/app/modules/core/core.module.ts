@@ -10,6 +10,7 @@ import { CustomCurrencyInputComponent } from './components/custom-currency-input
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BbUIModule } from '../bb-ui/bb-ui.module';
+import { ColorRedOrGreenDirective } from './directives/color-red-or-green.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BbUIModule } from '../bb-ui/bb-ui.module';
     ErrorsPipe,
     CustomInputComponent,
     CustomCurrencyInputComponent,
+    ColorRedOrGreenDirective,
   ],
   imports: [CommonModule, ReactiveFormsModule, MatDialogModule, BbUIModule],
   exports: [HeaderComponent, TransactionsListComponent, MakeTransferComponent],

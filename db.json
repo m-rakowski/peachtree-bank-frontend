@@ -1,6 +1,6 @@
 {
   "account": {
-    "amount": -104.67000000000006,
+    "amount": -105.69000000000005,
     "currencyCode": "EUR"
   },
   "transfers": [
@@ -12,7 +12,7 @@
       },
       "transaction": {
         "amountCurrency": {
-          "amount": 5000,
+          "amount": -5000,
           "currencyCode": "EUR"
         },
         "type": "Salaries",
@@ -497,6 +497,44 @@
         "accountNumber": "my account number"
       },
       "id": 26
+    },
+    {
+      "dates": {
+        "valueDate": 1637304958555
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 0.02,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": null,
+        "accountNumber": "my account number"
+      },
+      "id": 27
+    },
+    {
+      "dates": {
+        "valueDate": 1637305068480
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": -1,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": null,
+        "accountNumber": "my account number"
+      },
+      "id": 28
     }
   ]
 }
