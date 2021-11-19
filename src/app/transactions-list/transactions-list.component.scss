@@ -4,12 +4,14 @@
 }
 
 div[data-test-hook="transactionDate"] {
-  font-size: 0.6rem;
+  font-size: 0.9rem;
   padding: 0.6rem;
+  padding-right: 2rem;
 }
 
 div[data-test-hook="transactionMerchantName"] {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
 div[data-test-hook="transactionType"] {
