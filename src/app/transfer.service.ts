@@ -26,22 +26,19 @@ export class TransferService {
       );
   }
 
-  send(value: TransferDto) {
+  send(value: TransferDto): Observable<any> {
     const newTransfer: Transfer = {
       dates: {
         valueDate: new Date().getTime(),
       },
       categoryCode: '#fbbb1b',
       transaction: {
-        type: 'type',
+        type: 'Online Transfer',
         creditDebitIndicator: 'indicator',
-        amountCurrency: {
-          amount: value.amount,
-          currencyCode: 'EUR',
-        },
+        amountCurrency: value.account,
       },
       merchant: {
-        name: 'me',
+        name: value.toAccount,
         accountNumber: 'my account number',
       },
     };

@@ -6,14 +6,15 @@
   <section class="main-section">
     <app-filter (inputChange)="search($event)"></app-filter>
     <ng-container
-      *ngFor="let item of itemsFiltered; index as i; trackBy: trackByFn"
+      *ngFor="let item of transfersFiltered; index as i; trackBy: trackByFn"
     >
       <div
         class="item"
         [style]="'border-left-color: ' + asItem(item).categoryCode"
       >
         <app-transaction-item>
-          <div data-test-hook="transactionDate" class="transaction-date">
+          <div data-test-hook="transactionDate" class="transaction-date"
+               [title]="asItem(item).dates.valueDate | date : 'medium'">
             {{ asItem(item).dates.valueDate | date: "MMM. d" }}
           </div>
           <div data-test-hook="transactionMerchantName">
@@ -24,8 +25,8 @@
           </div>
           <div data-test-hook="transactionAmount">
             {{
-            asItem(item).transaction.amountCurrency.amount
-              | currency: asItem(item).transaction.amountCurrency.currencyCode
+            asItem(item).transaction?.amountCurrency?.amount
+              | currency: asItem(item).transaction?.amountCurrency?.currencyCode
             }}
           </div>
         </app-transaction-item>

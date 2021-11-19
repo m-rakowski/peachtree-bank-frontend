@@ -1,4 +1,8 @@
 {
+  "account": {
+    "amount": 34.559999999999945,
+    "currencyCode": "EUR"
+  },
   "transfers": [
     {
       "id": 1,
@@ -211,98 +215,136 @@
     },
     {
       "dates": {
-        "valueDate": 1636895816072
+        "valueDate": 1637292817019
       },
       "categoryCode": "#fbbb1b",
       "transaction": {
-        "type": "type",
+        "type": "Online Transfer",
         "creditDebitIndicator": "indicator",
         "amountCurrency": {
-          "amount": "3",
+          "amount": 12.31,
           "currencyCode": "EUR"
         }
       },
       "merchant": {
-        "name": "me",
+        "name": null,
         "accountNumber": "my account number"
       },
       "id": 12
     },
     {
       "dates": {
-        "valueDate": 1636903266293
+        "valueDate": 1637292894296
       },
       "categoryCode": "#fbbb1b",
       "transaction": {
-        "type": "type",
+        "type": "Online Transfer",
         "creditDebitIndicator": "indicator",
         "amountCurrency": {
-          "amount": null,
+          "amount": 1.11,
           "currencyCode": "EUR"
         }
       },
       "merchant": {
-        "name": "me",
+        "name": null,
         "accountNumber": "my account number"
       },
       "id": 13
     },
     {
       "dates": {
-        "valueDate": 1636903703039
+        "valueDate": 1637293072242
       },
       "categoryCode": "#fbbb1b",
       "transaction": {
-        "type": "type",
+        "type": "Online Transfer",
         "creditDebitIndicator": "indicator",
         "amountCurrency": {
-          "amount": null,
+          "amount": 0.03,
           "currencyCode": "EUR"
         }
       },
       "merchant": {
-        "name": "me",
+        "name": null,
         "accountNumber": "my account number"
       },
       "id": 14
     },
     {
       "dates": {
-        "valueDate": 1636903827586
+        "valueDate": 1637293246350
       },
       "categoryCode": "#fbbb1b",
       "transaction": {
-        "type": "type",
+        "type": "Online Transfer",
         "creditDebitIndicator": "indicator",
         "amountCurrency": {
-          "amount": null,
+          "amount": 1234,
           "currencyCode": "EUR"
         }
       },
       "merchant": {
-        "name": "me",
+        "name": null,
         "accountNumber": "my account number"
       },
       "id": 15
     },
     {
       "dates": {
-        "valueDate": 1636904419262
+        "valueDate": 1637293400155
       },
       "categoryCode": "#fbbb1b",
       "transaction": {
-        "type": "type",
+        "type": "Online Transfer",
         "creditDebitIndicator": "indicator",
         "amountCurrency": {
-          "amount": null,
+          "amount": 11.11,
           "currencyCode": "EUR"
         }
       },
       "merchant": {
-        "name": "me",
+        "name": null,
         "accountNumber": "my account number"
       },
       "id": 16
+    },
+    {
+      "dates": {
+        "valueDate": 1637295176217
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 1000,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": null,
+        "accountNumber": "my account number"
+      },
+      "id": 17
+    },
+    {
+      "dates": {
+        "valueDate": 1637295247522
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 200,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": null,
+        "accountNumber": "my account number"
+      },
+      "id": 18
     }
   ]
 }

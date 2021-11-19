@@ -1,7 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TransferDto } from '../make-transfer/transfer.model';
-import { TransferService } from '../transfer.service';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {TransferDto} from '../make-transfer/transfer.model';
+import {TransferService} from '../transfer.service';
+import {AccountService} from "../account.service";
 
 @Component({
   selector: 'app-review-transfer-modal',
@@ -11,12 +12,16 @@ import { TransferService } from '../transfer.service';
 export class ReviewTransferModalComponent implements OnInit {
   constructor(
     private itemService: TransferService,
+    private accountService: AccountService,
+    private dialogRef: MatDialogRef<ReviewTransferModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TransferDto
-  ) {}
+  ) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   submit() {
-    this.itemService.send(this.data).subscribe();
+    this.dialogRef.close(true);
   }
 }
