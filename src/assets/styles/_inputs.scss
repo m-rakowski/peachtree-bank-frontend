@@ -1,20 +1,20 @@
 @import "~src/assets/styles/vars";
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: $inputGrayText;
+  color: $inputTextColor;
   opacity: 1; /* Firefox */
   font-style: italic;
 }
 
 input {
-  border: 1px solid $inputGrayBorder;
+  border: 1px solid $darkGray;
   border-radius: 3px;
   font-family: "Roboto", Helvetica, sans-serif;
   padding: 0.4rem 1rem;
   text-overflow: ellipsis;
 
   &[disabled] {
-    color: $inputGrayBorder;
-    background-color: #ebeeeb;
+    color: $darkGray;
+    background-color: $fieldGrayBackground;
   }
 }

@@ -1,0 +1,43 @@
+@import "~src/assets/styles/vars";
+
+:host {
+  min-height: 5rem;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hasErrors {
+  border: 1px solid $errorColor;
+}
+
+.error-message {
+  color: $errorColor;
+  margin: 0.2rem 0;
+  font-size: 0.6rem;
+}
+
+label {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+select {
+  appearance: none;
+  background-color: $fieldGrayBackground;
+  border: 1px solid $darkGray;
+  border-radius: 3px 0 0 3px;
+  border-right: 0;
+
+  min-width: 2rem;
+  text-align: center;
+
+  color: $almostBlack;
+  font-family: "Roboto", Helvetica, sans-serif;
+}
+
+input {
+  border-radius: 0 3px 3px 0;
+}

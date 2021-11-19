@@ -1,0 +1,13 @@
+<label [for]="fieldName">{{fieldTitle}}</label>
+<div style="display: flex">
+
+  <select [formControl]="currencyControl">
+    <ng-container *ngFor="let currencyCode of currencyCodes">
+      <option [value]="currencyCode">{{getCurrencySymbol(currencyCode, "narrow")}}</option>
+    </ng-container>
+  </select>
+  <input type="text" [id]="fieldName" [name]="fieldName"
+         [formControl]="control" [ngClass]="{'hasErrors':control.errors && this.control.touched }"
+         [placeholder]="placeholder"
+  ></div>
+<p *ngIf="control.errors && this.control.touched" class="error-message">{{control.errors|errorsPipe}}</p>

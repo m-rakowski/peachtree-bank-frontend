@@ -20,18 +20,14 @@
         [placeholder]="'type an account name'"
       ></app-custom-input>
 
-      <app-custom-input
+      <app-custom-currency-input
         [control]="amount"
+        [currencyControl]="currency"
         [fieldName]="'amount'"
         [fieldTitle]="'Amount'"
         [placeholder]="'specify the amount'"
-      ></app-custom-input>
+      ></app-custom-currency-input>
 
-
-      <!--      <select [formControl]="currency">-->
-      <!--        <option value="EUR">EUR</option>-->
-      <!--        <option value="USD">USD</option>-->
-      <!--      </select>-->
       <div class="submit-button-container">
         <app-submit-button (submitForm)="submit()"></app-submit-button>
       </div>
