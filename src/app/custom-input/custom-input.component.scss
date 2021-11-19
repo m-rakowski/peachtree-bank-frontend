@@ -1,0 +1,23 @@
+@import "~src/assets/styles/vars";
+:host {
+  min-height: 5rem;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hasErrors {
+  border: 1px solid $errorColor;
+}
+
+.error-message {
+  color: $errorColor;
+  margin: 0.2rem 0;
+  font-size: 0.6rem;
+}
+label {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}

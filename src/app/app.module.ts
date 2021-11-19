@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorsPipe } from './errors-pipe';
+import { CustomInputComponent } from './custom-input/custom-input.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MakeTransferComponent,
     ReviewTransferModalComponent,
     HeaderComponent,
+    ErrorsPipe,
+    CustomInputComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,11 +20,11 @@
   flex-direction: column;
 
   app-make-transfer {
-    flex-basis: 15rem;
+    flex-basis: 20rem;
   }
 
   app-transactions-list {
-    flex-basis: 40rem;
+    flex-basis: 50rem;
   }
 
   @media only screen and (min-width: 40rem) {

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { ReviewTransferModalComponent } from '../review-transfer-modal/review-transfer-modal.component';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {ReviewTransferModalComponent} from '../review-transfer-modal/review-transfer-modal.component';
 
 @Component({
   selector: 'app-make-transfer',
@@ -11,20 +11,36 @@ import { ReviewTransferModalComponent } from '../review-transfer-modal/review-tr
 export class MakeTransferComponent implements OnInit {
   formGroup: FormGroup;
 
+  fromAccount: FormControl;
+  toAccount: FormControl;
+  amount: FormControl;
+  currency: FormControl;
+
   constructor(private matDialog: MatDialog) {
+    this.fromAccount = new FormControl('My Personal Account: XXXX €');
+    this.toAccount = new FormControl();
+    this.amount = new FormControl(null, [Validators.required, Validators.min(0)]);
+    this.currency = new FormControl();
+
     this.formGroup = new FormGroup({
-      fromAccount: new FormControl(),
-      toAccount: new FormControl(),
+      fromAccount: this.fromAccount,
+      toAccount: this.toAccount,
       //TODO b. It should not allow amount below the total balance of -€500
-      amount: new FormControl(null, [Validators.required, Validators.min(0)]),
+      amount: this.amount,
+      currency: this.currency
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   submit(): void {
-    this.matDialog.open(ReviewTransferModalComponent, {
-      data: this.formGroup.value,
-    });
+    if (this.formGroup.valid) {
+      this.matDialog.open(ReviewTransferModalComponent, {
+        data: this.formGroup.value,
+      });
+    } else {
+      this.formGroup.markAllAsTouched();
+    }
   }
 }

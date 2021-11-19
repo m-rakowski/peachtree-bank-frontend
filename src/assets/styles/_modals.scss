@@ -1,0 +1,31 @@
+@import "~src/assets/styles/vars";
+
+.modal-header {
+  background-color: $primary-blue;
+  min-height: 4rem;
+  border-radius: 1.1rem 1.1rem 0 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+
+  .modal-title {
+    word-spacing: $small-spacing;
+  }
+
+  .icon {
+    height: 1.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+}
+
+.main-section {
+  background-color: white;
+  border-radius: 0 0 0.9rem 0.9rem;
+  padding: 1rem;
+}
+
+.box {
+  margin: 0.6rem;
+}
