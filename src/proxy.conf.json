@@ -13,5 +13,12 @@
     "pathRewrite": {
       "^/api/transfers": ""
     }
+  },
+  "/api/account": {
+    "target": "http://localhost:3000/account",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/account": ""
+    }
   }
 }

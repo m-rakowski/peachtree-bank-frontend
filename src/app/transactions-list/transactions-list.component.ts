@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TransferService } from '../transfer.service';
-import { Transfer } from '../../mock-data/transfer.model';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Transfer} from '../../mock-data/transfer.model';
+import {GlobalStateService} from "../global-state.service";
 
 @Component({
   selector: 'app-transactions-list',
@@ -8,13 +8,13 @@ import { Transfer } from '../../mock-data/transfer.model';
   styleUrls: ['./transactions-list.component.scss'],
 })
 export class TransactionsListComponent implements OnInit, OnDestroy {
-  items: Transfer[] = [];
-  itemsFiltered: Transfer[] = [];
+  transfers: Transfer[] = [];
+  transfersFiltered: Transfer[] = [];
 
-  constructor(private itemService: TransferService) {
-    this.itemService.getAll().subscribe((items) => {
-      this.items = items;
-      this.itemsFiltered = items;
+  constructor(private globalStateService: GlobalStateService) {
+    this.globalStateService.transfers.subscribe((transfers) => {
+      this.transfers = transfers;
+      this.transfersFiltered = transfers;
     });
   }
 
@@ -26,13 +26,15 @@ export class TransactionsListComponent implements OnInit, OnDestroy {
     return item;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   search(term: string) {
-    this.itemsFiltered = this.items.filter((item) => {
-      return item.merchant.name.toLowerCase().includes(term.toLowerCase());
+    this.transfersFiltered = this.transfers.filter((transfer) => {
+      return transfer.merchant.name.toLowerCase().includes(term.toLowerCase());
     });
   }
 
-  ngOnDestroy() {}
+  ngOnDestroy() {
+  }
 }
