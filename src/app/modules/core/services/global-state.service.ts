@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
-import { AccountAmountCurrency } from './account-amount-currency';
-import { Transfer } from '../mock-data/transfer.model';
+import { AccountAmountCurrency } from '../models/account-amount-currency';
+import { Transfer } from '../../../../mock-data/transfer.model';
 import { TransferService } from './transfer.service';
 import { AccountService } from './account.service';
-import { TransferDto } from './make-transfer/transfer.model';
+import { TransferDto } from '../models/transfer';
 
 @Injectable({
   providedIn: 'root',

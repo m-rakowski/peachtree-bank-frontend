@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, switchMap } from 'rxjs';
-import { AccountAmountCurrency } from './account-amount-currency';
+import { AccountAmountCurrency } from '../models/account-amount-currency';
 
 @Injectable({
   providedIn: 'root',
