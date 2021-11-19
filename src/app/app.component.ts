@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TransferService } from './modules/core/services/transfer.service';
 import { GlobalStateService } from './modules/core/services/global-state.service';
-import { AccountService } from './modules/core/services/account.service';
 
 @Component({
   selector: 'app-root',

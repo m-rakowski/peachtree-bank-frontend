@@ -8,9 +8,8 @@ describe('ReviewTransferModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReviewTransferModalComponent ]
-    })
-    .compileComponents();
+      declarations: [ReviewTransferModalComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
