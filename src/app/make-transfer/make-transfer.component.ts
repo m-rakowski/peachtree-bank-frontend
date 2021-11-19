@@ -59,6 +59,7 @@ export class MakeTransferComponent implements OnInit {
         )
         .subscribe(() => {
           this.amount.reset();
+          this.toAccount.reset();
         });
     } else {
       this.formGroup.markAllAsTouched();

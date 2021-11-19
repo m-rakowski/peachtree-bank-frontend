@@ -1,6 +1,6 @@
 {
   "account": {
-    "amount": 34.559999999999945,
+    "amount": -99.67000000000006,
     "currencyCode": "EUR"
   },
   "transfers": [
@@ -345,6 +345,63 @@
         "accountNumber": "my account number"
       },
       "id": 18
+    },
+    {
+      "dates": {
+        "valueDate": 1637296676673
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 10.23,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "To Celine",
+        "accountNumber": "my account number"
+      },
+      "id": 19
+    },
+    {
+      "dates": {
+        "valueDate": 1637296721193
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 123,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "Celine",
+        "accountNumber": "my account number"
+      },
+      "id": 20
+    },
+    {
+      "dates": {
+        "valueDate": 1637296746707
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 1,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "asdsd",
+        "accountNumber": "my account number"
+      },
+      "id": 21
     }
   ]
 }
