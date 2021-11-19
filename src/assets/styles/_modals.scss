@@ -1,27 +1,41 @@
 @import "~src/assets/styles/vars";
 
+$modalPadding: 0.8rem;
+
 .modal-header {
-  background-color: $primary-blue;
-  min-height: 4rem;
-  border-radius: 1.1rem 1.1rem 0 0;
-  color: white;
+  min-height: 3rem;
   display: flex;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  justify-content: space-between;
 
   .icon {
-    height: 1.5rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
+    fill: $almostBlack;
+    height: 0.7rem;
+    margin-right: 0.5rem;
   }
+
+  padding: $modalPadding;
+  border-bottom: 2px solid lighten($inputTextColor, 30%);
 }
 
-.main-section {
-  background-color: white;
-  border-radius: 0 0 0.9rem 0.9rem;
-  padding: 1.3rem;
+.modal-main-section {
+  padding: $modalPadding;
+  border-bottom: 2px solid lighten($inputTextColor, 30%);
 }
 
-.box {
-  margin: 0.6rem;
+.modal-question {
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.modal-footer {
+  padding: $modalPadding;
+  display: flex;
+  justify-content: flex-end;
+
+  > * {
+    margin-left: 0.4rem;
+  }
 }

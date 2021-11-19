@@ -1,6 +1,5 @@
 $primary: #ff9818;
-$warning: #f87526;
-$danger: #fd3b37;
+$secondary: #cecece;
 $disabled: #aeb8c0;
 $white: #ffffff;
 $border: #e08d31;
@@ -39,12 +38,8 @@ $button-text-color: $white;
     @include button-style($primary);
   }
 
-  &-warning {
-    @include button-style($warning);
-  }
-
-  &-danger {
-    @include button-style($danger);
+  &-secondary {
+    @include button-style($secondary);
   }
 
   &__text {
