@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Transfer} from '../../mock-data/transfer.model';
-import {GlobalStateService} from "../global-state.service";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Transfer } from '../../mock-data/transfer.model';
+import { GlobalStateService } from '../global-state.service';
 
 @Component({
   selector: 'app-transactions-list',
@@ -26,15 +26,13 @@ export class TransactionsListComponent implements OnInit, OnDestroy {
     return item;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   search(term: string) {
     this.transfersFiltered = this.transfers.filter((transfer) => {
-      return transfer.merchant.name.toLowerCase().includes(term.toLowerCase());
+      return transfer.merchant.name?.toLowerCase().includes(term.toLowerCase());
     });
   }
 
-  ngOnDestroy() {
-  }
+  ngOnDestroy() {}
 }
