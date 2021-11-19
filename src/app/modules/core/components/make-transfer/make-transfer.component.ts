@@ -4,6 +4,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { ReviewTransferModalComponent } from '../review-transfer-modal/review-transfer-modal.component';
 import { filter, switchMap } from 'rxjs';
 import { GlobalStateService } from '../../services/global-state.service';
+import {
+  conditionalValidator,
+  notEnoughBalanceValidator,
+} from './transfer-amount-validator';
 
 @Component({
   selector: 'app-make-transfer',
@@ -49,7 +53,7 @@ export class MakeTransferComponent implements OnInit {
           this.formGroup.get('toAccount').reset();
 
           // @ts-ignore
-          this.formGroup.get('amount.amount')?.patchValue(0);
+          this.formGroup.get('amount.amount')?.patchValue(0.01);
           // @ts-ignore
           this.formGroup.get('amount.currencyCode')?.patchValue('EUR');
         });
@@ -61,20 +65,28 @@ export class MakeTransferComponent implements OnInit {
   private setUpForm(): void {
     this.formGroup = new FormGroup({
       fromAccount: new FormGroup({
-        amount: new FormControl(0),
+        amount: new FormControl(0.01),
         currencyCode: new FormControl('EUR'),
       }),
       toAccount: new FormControl(null, [Validators.required]),
       amount: new FormGroup({
-        amount: new FormControl(0, [
+        amount: new FormControl(0.01, [
           Validators.required,
           Validators.min(0.01),
-          //TODO     b. It should not allow amount below the total balance of -€500
+          conditionalValidator(
+            () => this.formGroup.get('fromAccount.amount').value < 500,
+            Validators.compose([notEnoughBalanceValidator()])
+          ),
         ]),
         currencyCode: new FormControl('EUR'),
       }),
     });
 
     this.formGroup.get('fromAccount')?.disable();
+    // @ts-ignore
+    this.formGroup.get('fromAccount').valueChanges.subscribe((value) => {
+      // @ts-ignore
+      this.formGroup.get('amount').updateValueAndValidity();
+    });
   }
 }

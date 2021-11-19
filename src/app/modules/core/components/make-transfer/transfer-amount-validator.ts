@@ -1,22 +1,23 @@
 import {
   AbstractControl,
+  FormControl,
   ValidationErrors,
   ValidatorFn,
-  Validators,
 } from '@angular/forms';
 
-export function BalanceHasToBeSufficientValidator(
-  formControl: AbstractControl
-) {
-  if (!formControl.parent) {
+export function conditionalValidator(
+  predicate: () => boolean,
+  validator: any
+): any {
+  return (formControl: FormControl) => {
+    if (!formControl.parent) {
+      return null;
+    }
+    if (predicate()) {
+      return validator(formControl);
+    }
     return null;
-  }
-
-  // @ts-ignore
-  if (formControl.parent.get('balanceAmount').value <= 500) {
-    return notEnoughBalanceValidator;
-  }
-  return null;
+  };
 }
 
 export function notEnoughBalanceValidator(): ValidatorFn {
