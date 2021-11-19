@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Transfer } from '../../mock-data/transfer.model';
-import { GlobalStateService } from '../global-state.service';
+import { Transfer } from '../../../../../mock-data/transfer.model';
+import { GlobalStateService } from '../../services/global-state.service';
 
 @Component({
   selector: 'app-transactions-list',

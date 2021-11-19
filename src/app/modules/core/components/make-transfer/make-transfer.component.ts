@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewTransferModalComponent } from '../review-transfer-modal/review-transfer-modal.component';
 import { getCurrencySymbol } from '@angular/common';
-import { AccountAmountCurrency } from '../account-amount-currency';
+import { AccountAmountCurrency } from '../../models/account-amount-currency';
 import { filter, switchMap } from 'rxjs';
-import { GlobalStateService } from '../global-state.service';
+import { GlobalStateService } from '../../services/global-state.service';
 
 @Component({
   selector: 'app-make-transfer',

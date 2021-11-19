@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Transfer } from '../mock-data/transfer.model';
+import { Transfer } from '../../../../mock-data/transfer.model';
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { TransferDto } from './make-transfer/transfer.model';
+import { TransferDto } from '../models/transfer';
 
 @Injectable({
   providedIn: 'root',

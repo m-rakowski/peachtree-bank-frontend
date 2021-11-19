@@ -1,4 +1,4 @@
-import {AccountAmountCurrency} from "../account-amount-currency";
+import { AccountAmountCurrency } from './account-amount-currency';
 
 export interface TransferDto {
   fromAccount: string;
