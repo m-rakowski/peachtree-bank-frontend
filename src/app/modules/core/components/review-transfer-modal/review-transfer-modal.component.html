@@ -1,12 +1,25 @@
-<header>Review Transfer</header>
-<h2>Are you ready to send out this transfer?</h2>
+<header class="modal-header">
+  <span class="modal-title"><strong>Review</strong> Transfer</span>
+  <img
+    class="icon"
+    src="../../../../../assets/icons/x-symbol-svgrepo-com.svg"
+    mat-dialog-close
+  />
+</header>
+<section class="modal-main-section">
+  <h2 class="modal-question">Are you ready to send out this transfer?</h2>
 
-<p>It will be sent to account:</p>
-<p>{{ data.toAccount }}</p>
-<p>With the amount of:</p>
-<p>{{ data.account.amount }} {{ data.account.currencyCode }}</p>
+  <dl>
+    <dt>It will be sent to account:</dt>
+    <dd>{{ data.toAccount }}</dd>
 
-<button class="btn btn-secondary" mat-dialog-close>Close</button>
-<button (click)="submit()" class="btn btn-primary" mat-dialog-close>
-  Send transfer
-</button>
+    <dt>With the amount of:</dt>
+    <dd>{{ data.account.amount | currency: data.account.currencyCode }}</dd>
+  </dl>
+</section>
+<footer class="modal-footer">
+  <button class="btn btn-secondary" mat-dialog-close>Close</button>
+  <button (click)="submit()" class="btn btn-primary" mat-dialog-close>
+    Send transfer
+  </button>
+</footer>

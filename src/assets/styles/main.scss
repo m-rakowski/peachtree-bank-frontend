@@ -1,6 +1,7 @@
 @import "~src/assets/styles/vars";
 @import "buttons";
 @import "inputs";
+@import "panels";
 @import "modals";
 
 body,
@@ -44,5 +45,11 @@ input[data-test-hook="filterInput"] {
   width: 100%;
   @media only screen and (min-width: 40rem) {
     width: 50%;
+  }
+}
+
+body {
+  .mat-dialog-container {
+    padding: 0;
   }
 }
