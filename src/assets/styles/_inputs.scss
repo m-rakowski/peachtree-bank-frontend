@@ -11,4 +11,10 @@ input {
   border-radius: 3px;
   font-family: "Roboto", Helvetica, sans-serif;
   padding: 0.4rem 1rem;
+  text-overflow: ellipsis;
+
+  &[disabled] {
+    color: $inputGrayBorder;
+    background-color: #ebeeeb;
+  }
 }

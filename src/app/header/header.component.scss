@@ -5,6 +5,7 @@ header {
   display: flex;
   padding: 0.6rem;
   align-items: center;
+  border-bottom: 2px solid lighten($inputGrayText, 30%);
 }
 
 .frontend-technical-assignment {

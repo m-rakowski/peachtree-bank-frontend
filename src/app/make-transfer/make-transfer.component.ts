@@ -18,6 +18,7 @@ export class MakeTransferComponent implements OnInit {
 
   constructor(private matDialog: MatDialog) {
     this.fromAccount = new FormControl('My Personal Account: XXXX €');
+    this.fromAccount.disable();
     this.toAccount = new FormControl();
     this.amount = new FormControl(null, [Validators.required, Validators.min(0)]);
     this.currency = new FormControl();
