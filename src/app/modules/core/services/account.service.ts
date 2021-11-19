@@ -17,7 +17,7 @@ export class AccountService {
     return this.getAccount().pipe(
       switchMap((val) =>
         this.httpClient.put('/api/account', {
-          amount: (val.amount - amount.amount).toFixed(2),
+          amount: Number((val.amount - amount.amount).toFixed(2)),
           currencyCode: val.currencyCode,
         })
       )
