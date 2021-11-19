@@ -21,7 +21,7 @@ export class MakeTransferComponent implements OnInit {
     this.fromAccount.disable();
     this.toAccount = new FormControl();
     this.amount = new FormControl(null, [Validators.required, Validators.min(0)]);
-    this.currency = new FormControl();
+    this.currency = new FormControl('EUR');
 
     this.formGroup = new FormGroup({
       fromAccount: this.fromAccount,

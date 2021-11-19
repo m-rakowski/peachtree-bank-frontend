@@ -13,6 +13,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorsPipe } from './errors-pipe';
 import { CustomInputComponent } from './custom-input/custom-input.component';
+import {CustomCurrencyInputComponent} from "./custom-currency-input/custom-currency-input.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
     HeaderComponent,
     ErrorsPipe,
     CustomInputComponent,
+    CustomCurrencyInputComponent
   ],
   imports: [
     BrowserModule,
