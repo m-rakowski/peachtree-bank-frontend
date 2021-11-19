@@ -8,23 +8,26 @@
   </header>
   <section class="main-section">
     <form [formGroup]="formGroup" class="make-transfer-form">
-      <app-custom-input
-        [control]="fromAccount"
+      <app-custom-currency-input
+        [amountControl]="formGroup.get('fromAccount.amount') | asFormControl"
+        [currencyControl]="
+          formGroup.get('fromAccount.currencyCode') | asFormControl
+        "
         [fieldName]="'fromAccount'"
         [fieldTitle]="'From Account'"
-        [placeholder]="'My Personal Account'"
-      ></app-custom-input>
+        [placeholder]="''"
+      ></app-custom-currency-input>
 
       <app-custom-input
-        [control]="toAccount"
+        [control]="formGroup.get('toAccount') | asFormControl"
         [fieldName]="'toAccount'"
         [fieldTitle]="'To Account'"
         [placeholder]="'type an account name'"
       ></app-custom-input>
 
       <app-custom-currency-input
-        [control]="amount"
-        [currencyControl]="currencyCode"
+        [amountControl]="formGroup.get('amount.amount') | asFormControl"
+        [currencyControl]="formGroup.get('amount.currencyCode') | asFormControl"
         [fieldName]="'amount'"
         [fieldTitle]="'Amount'"
         [placeholder]="'specify the amount'"

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewTransferModalComponent } from '../review-transfer-modal/review-transfer-modal.component';
-import { getCurrencySymbol } from '@angular/common';
-import { AccountAmountCurrency } from '../../models/account-amount-currency';
 import { filter, switchMap } from 'rxjs';
 import { GlobalStateService } from '../../services/global-state.service';
 
@@ -13,37 +11,26 @@ import { GlobalStateService } from '../../services/global-state.service';
   styleUrls: ['./make-transfer.component.scss'],
 })
 export class MakeTransferComponent implements OnInit {
-  myPersonalAccount: AccountAmountCurrency = {
-    amount: 0,
-    currencyCode: 'EUR',
-  };
-
   formGroup: FormGroup;
-  fromAccount: FormControl;
-  toAccount: FormControl;
-  amount: FormControl;
-  currencyCode: FormControl;
 
   constructor(
     private matDialog: MatDialog,
     private globalStateService: GlobalStateService
   ) {
     this.setUpForm();
-    this.globalStateService.account.subscribe((value) => {
-      this.myPersonalAccount = value;
-      this.fromAccount.patchValue(
-        this.fromAccountDisplayedText(this.myPersonalAccount)
-      );
-    });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.globalStateService.account.subscribe((value) => {
+      this.formGroup.get('fromAccount')?.patchValue(value);
+    });
+  }
 
   submit(): void {
     if (this.formGroup.valid) {
       this.matDialog
         .open(ReviewTransferModalComponent, {
-          data: this.formGroup.value,
+          data: this.formGroup.getRawValue(),
         })
         .afterClosed()
         .pipe(
@@ -53,47 +40,41 @@ export class MakeTransferComponent implements OnInit {
           ),
           switchMap(() =>
             this.globalStateService.sendAccount(
-              this.formGroup.get('account')?.value
+              this.formGroup.get('amount')?.value
             )
           )
         )
         .subscribe(() => {
-          this.amount.reset();
-          this.toAccount.reset();
+          // @ts-ignore
+          this.formGroup.get('toAccount').reset();
+
+          // @ts-ignore
+          this.formGroup.get('amount.amount')?.patchValue(0);
+          // @ts-ignore
+          this.formGroup.get('amount.currencyCode')?.patchValue('EUR');
         });
     } else {
       this.formGroup.markAllAsTouched();
     }
   }
 
-  private fromAccountDisplayedText(account: AccountAmountCurrency): string {
-    return (
-      'My Personal Account: ' +
-      getCurrencySymbol(account.currencyCode, 'narrow') +
-      account.amount.toFixed(2)
-    );
-  }
-
   private setUpForm(): void {
-    this.fromAccount = new FormControl(
-      this.fromAccountDisplayedText(this.myPersonalAccount)
-    );
-    this.fromAccount.disable();
-    this.toAccount = new FormControl();
-    this.amount = new FormControl(null, [
-      Validators.required,
-      Validators.min(0),
-    ]);
-    this.currencyCode = new FormControl('EUR');
-
     this.formGroup = new FormGroup({
-      fromAccount: this.fromAccount,
-      toAccount: this.toAccount,
-      //TODO b. It should not allow amount below the total balance of -€500
-      account: new FormGroup({
-        amount: this.amount,
-        currencyCode: this.currencyCode,
+      fromAccount: new FormGroup({
+        amount: new FormControl(0),
+        currencyCode: new FormControl('EUR'),
+      }),
+      toAccount: new FormControl(null, [Validators.required]),
+      amount: new FormGroup({
+        amount: new FormControl(0, [
+          Validators.required,
+          Validators.min(0.01),
+          //TODO     b. It should not allow amount below the total balance of -€500
+        ]),
+        currencyCode: new FormControl('EUR'),
       }),
     });
+
+    this.formGroup.get('fromAccount')?.disable();
   }
 }
