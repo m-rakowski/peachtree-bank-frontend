@@ -13,7 +13,7 @@ export class CustomCurrencyInputComponent implements OnInit {
   @Input() placeholder: string = '';
   @Input() fieldName: string;
   @Input() fieldTitle: string;
-  currencyCodes = ['EUR', 'USD'];
+  currencyCodes = ['EUR'];
 
   constructor() {
   }
