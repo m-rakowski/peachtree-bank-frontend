@@ -1,6 +1,7 @@
 @import "~src/assets/styles/vars";
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: $inputTextColor;
   opacity: 1; /* Firefox */
   font-style: italic;
@@ -10,11 +11,17 @@ input {
   border: 1px solid $darkGray;
   border-radius: 3px;
   font-family: "Roboto", Helvetica, sans-serif;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   text-overflow: ellipsis;
 
   &[disabled] {
     color: $darkGray;
     background-color: $fieldGrayBackground;
   }
+}
+
+label {
+  margin: 0.9rem 0;
+  font-weight: 300;
+  font-size: 1.1rem;
 }
