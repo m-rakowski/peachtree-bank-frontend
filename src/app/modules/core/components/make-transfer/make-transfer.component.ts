@@ -73,10 +73,12 @@ export class MakeTransferComponent implements OnInit {
         amount: new FormControl(0.01, [
           Validators.required,
           Validators.min(0.01),
-          conditionalValidator(
-            () => this.formGroup.get('fromAccount.amount').value < 500,
-            Validators.compose([notEnoughBalanceValidator()])
-          ),
+
+          // TODO: fix conditional validation
+          // conditionalValidator(
+          //   () => this.formGroup.get('fromAccount.amount').value < 500,
+          //   Validators.compose([notEnoughBalanceValidator()])
+          // ),
         ]),
         currencyCode: new FormControl('EUR'),
       }),
