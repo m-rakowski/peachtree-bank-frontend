@@ -36,8 +36,8 @@ export class TransferService {
         type: 'Online Transfer',
         creditDebitIndicator: 'indicator',
         amountCurrency: {
-          amount: -1 * value.account.amount,
-          currencyCode: value.account.currencyCode,
+          amount: -1 * value.amount.amount,
+          currencyCode: value.amount.currencyCode,
         },
       },
       merchant: {

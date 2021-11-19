@@ -45,9 +45,9 @@ export class GlobalStateService {
       .pipe(switchMap(() => this.updateTransfers()));
   }
 
-  sendAccount(account: AccountAmountCurrency): Observable<any> {
+  sendAccount(amount: AccountAmountCurrency): Observable<any> {
     return this.accountService
-      .send(account)
+      .send(amount)
       .pipe(switchMap(() => this.updateAccount()));
   }
 

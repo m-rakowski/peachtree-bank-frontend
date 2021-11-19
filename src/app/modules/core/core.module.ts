@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BbUIModule } from '../bb-ui/bb-ui.module';
 import { ColorRedOrGreenDirective } from './directives/color-red-or-green.directive';
+import { AsFormControlPipe } from './pipes/as-form-control.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ColorRedOrGreenDirective } from './directives/color-red-or-green.direct
     CustomInputComponent,
     CustomCurrencyInputComponent,
     ColorRedOrGreenDirective,
+    AsFormControlPipe,
   ],
   imports: [CommonModule, ReactiveFormsModule, MatDialogModule, BbUIModule],
   exports: [HeaderComponent, TransactionsListComponent, MakeTransferComponent],

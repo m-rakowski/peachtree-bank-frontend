@@ -3,10 +3,10 @@
   [formControl]="control"
   [id]="fieldName"
   [name]="fieldName"
-  [ngClass]="{ hasErrors: control.errors && this.control.touched }"
+  [ngClass]="{ hasErrors: control?.errors && this.control?.touched }"
   [placeholder]="placeholder"
   type="text"
 />
-<p *ngIf="control.errors && this.control.touched" class="error-message">
+<p *ngIf="control?.errors && this.control?.touched" class="error-message">
   {{ control.errors | errorsPipe }}
 </p>

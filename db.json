@@ -1,6 +1,6 @@
 {
   "account": {
-    "amount": -105.69000000000005,
+    "amount": "0.12",
     "currencyCode": "EUR"
   },
   "transfers": [
@@ -535,6 +535,139 @@
         "accountNumber": "my account number"
       },
       "id": 28
+    },
+    {
+      "dates": {
+        "valueDate": 1637307282374
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 0,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": null,
+        "accountNumber": "my account number"
+      },
+      "id": 29
+    },
+    {
+      "dates": {
+        "valueDate": 1637310009739
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": -12.13,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "asdasd",
+        "accountNumber": "my account number"
+      },
+      "id": 30
+    },
+    {
+      "dates": {
+        "valueDate": 1637310076795
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": -11,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "12.13",
+        "accountNumber": "my account number"
+      },
+      "id": 31
+    },
+    {
+      "dates": {
+        "valueDate": 1637310146775
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": -1000,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "Abc",
+        "accountNumber": "my account number"
+      },
+      "id": 32
+    },
+    {
+      "dates": {
+        "valueDate": 1637310185690
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": -300,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "1",
+        "accountNumber": "my account number"
+      },
+      "id": 33
+    },
+    {
+      "dates": {
+        "valueDate": 1637310259006
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": -40,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "1231",
+        "accountNumber": "my account number"
+      },
+      "id": 34
+    },
+    {
+      "dates": {
+        "valueDate": 1637310300522
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": -5,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": "5",
+        "accountNumber": "my account number"
+      },
+      "id": 35
     }
   ]
 }

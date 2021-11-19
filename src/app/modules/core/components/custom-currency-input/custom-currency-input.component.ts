@@ -8,7 +8,7 @@ import { getCurrencySymbol } from '@angular/common';
   styleUrls: ['./custom-currency-input.component.scss'],
 })
 export class CustomCurrencyInputComponent implements OnInit {
-  @Input() control: FormControl;
+  @Input() amountControl: FormControl;
   @Input() currencyControl: FormControl;
   @Input() placeholder: string = '';
   @Input() fieldName: string;

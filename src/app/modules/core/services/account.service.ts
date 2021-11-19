@@ -13,11 +13,11 @@ export class AccountService {
     return this.httpClient.get<AccountAmountCurrency>('/api/account');
   }
 
-  send(account: AccountAmountCurrency): Observable<any> {
+  send(amount: AccountAmountCurrency): Observable<any> {
     return this.getAccount().pipe(
       switchMap((val) =>
         this.httpClient.put('/api/account', {
-          amount: val.amount - account.amount,
+          amount: (val.amount - amount.amount).toFixed(2),
           currencyCode: val.currencyCode,
         })
       )
