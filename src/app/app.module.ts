@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { BbUIModule } from './bb-ui/bb-ui.module';
+import { BbUIModule } from './modules/bb-ui/bb-ui.module';
 import { TransactionsListComponent } from './transactions-list/transactions-list.component';
 import { MakeTransferComponent } from './make-transfer/make-transfer.component';
 import { ReviewTransferModalComponent } from './review-transfer-modal/review-transfer-modal.component';
@@ -13,7 +13,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorsPipe } from './errors-pipe';
 import { CustomInputComponent } from './custom-input/custom-input.component';
-import {CustomCurrencyInputComponent} from "./custom-currency-input/custom-currency-input.component";
+import { CustomCurrencyInputComponent } from './custom-currency-input/custom-currency-input.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import {CustomCurrencyInputComponent} from "./custom-currency-input/custom-curre
     HeaderComponent,
     ErrorsPipe,
     CustomInputComponent,
-    CustomCurrencyInputComponent
+    CustomCurrencyInputComponent,
   ],
   imports: [
     BrowserModule,

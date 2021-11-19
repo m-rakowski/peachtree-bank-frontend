@@ -1,6 +1,6 @@
 {
   "account": {
-    "amount": -99.67000000000006,
+    "amount": -100.67000000000006,
     "currencyCode": "EUR"
   },
   "transfers": [
@@ -402,6 +402,25 @@
         "accountNumber": "my account number"
       },
       "id": 21
+    },
+    {
+      "dates": {
+        "valueDate": 1637298636451
+      },
+      "categoryCode": "#fbbb1b",
+      "transaction": {
+        "type": "Online Transfer",
+        "creditDebitIndicator": "indicator",
+        "amountCurrency": {
+          "amount": 1,
+          "currencyCode": "EUR"
+        }
+      },
+      "merchant": {
+        "name": null,
+        "accountNumber": "my account number"
+      },
+      "id": 22
     }
   ]
 }
