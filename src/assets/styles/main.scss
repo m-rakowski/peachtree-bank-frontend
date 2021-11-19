@@ -1,46 +1,15 @@
 @import "~src/assets/styles/vars";
 @import "buttons";
+@import "inputs";
+@import "modals";
 
-body {
+body, html {
   font-family: "Roboto", Helvetica, sans-serif;
   font-weight: 300;
   font-size: 14px;
-}
 
-body,
-html {
   margin: 0;
   padding: 0;
-}
-
-.modal-header {
-  background-color: $primary-blue;
-  min-height: 3rem;
-  border-radius: 1.1rem 1.1rem 0 0;
-  color: white;
-  display: flex;
-  align-items: center;
-  font-size: 1.3em;
-
-  .modal-title {
-    word-spacing: $small-spacing;
-  }
-
-  .icon {
-    height: 1.5rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
-}
-
-.main-section {
-  background-color: white;
-  border-radius: 0 0 0.9rem 0.9rem;
-  padding: 0.6rem;
-}
-
-.box {
-  margin: 0.6rem;
 }
 
 .spacer {
@@ -50,3 +19,9 @@ html {
 .merchant-details {
   flex: 2;
 }
+
+.make-transfer-form * {
+  display: block;
+}
+
+

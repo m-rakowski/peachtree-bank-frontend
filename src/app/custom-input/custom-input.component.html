@@ -1,0 +1,6 @@
+<label [for]="fieldName">{{fieldTitle}}</label>
+<input type="text" [id]="fieldName" [name]="fieldName"
+       [formControl]="control" [ngClass]="{'hasErrors':control.errors && this.control.touched }"
+       [placeholder]="placeholder"
+>
+<p *ngIf="control.errors && this.control.touched" class="error-message">{{control.errors|errorsPipe}}</p>

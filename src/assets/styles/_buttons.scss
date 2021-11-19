@@ -1,13 +1,14 @@
-$primary: #2ed13b;
+$primary: #ff9818;
 $warning: #f87526;
 $danger: #fd3b37;
 $disabled: #aeb8c0;
 $white: #ffffff;
+$border: #e08d31;
 
 $box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 $box-shadow-hover: 0px 2px 3px 2px rgba(0, 0, 0, 0.2);
 
-$button-icon-padding: 1em;
+$button-icon-padding: 1rem;
 $button-text-color: $white;
 
 @mixin button-style($button-color) {
@@ -16,12 +17,14 @@ $button-text-color: $white;
 }
 
 .btn {
-  border-radius: 24px;
+  border-radius: 0.3rem;
   box-shadow: $box-shadow;
   color: $button-text-color;
-  margin: 1em 0.5em;
-  padding: 1em 2em;
-  border: none;
+  margin: 0.4rem 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid $border;
+  font-weight: 400;
+  font-size: 1rem;
 
   &:hover {
     box-shadow: $box-shadow-hover;
@@ -45,12 +48,12 @@ $button-text-color: $white;
   }
 
   &__text {
-    font-size: 1.5em;
+    font-size: 2rem;
   }
 
   &__text + &__icon,
   &__icon + &__text {
-    margin-left: 0.6em;
+    margin-left: 0.6rem;
   }
 
   &__icon {

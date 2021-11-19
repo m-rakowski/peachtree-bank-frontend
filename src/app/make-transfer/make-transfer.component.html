@@ -4,14 +4,39 @@
     <span class="modal-title"><strong>Make</strong> Transfer</span>
   </header>
   <section class="main-section">
-    <form [formGroup]="formGroup">
-      <p>From Account</p>
-      <input formControlName="fromAccount"/>
-      <p>To Account</p>
-      <input formControlName="toAccount"/>
-      <p>Amount</p>
-      <input formControlName="amount"/> €
-      <app-submit-button (submitForm)="submit()"></app-submit-button>
+    <form [formGroup]="formGroup" class="make-transfer-form">
+
+      <app-custom-input
+        [control]="fromAccount"
+        [fieldName]="'fromAccount'"
+        [fieldTitle]="'From Account'"
+        [placeholder]="''"
+      ></app-custom-input>
+
+      <app-custom-input
+        [control]="toAccount"
+        [fieldName]="'toAccount'"
+        [fieldTitle]="'To Account'"
+        [placeholder]="'type an account name'"
+      ></app-custom-input>
+
+      <app-custom-input
+        [control]="amount"
+        [fieldName]="'amount'"
+        [fieldTitle]="'Amount'"
+        [placeholder]="'specify the amount'"
+      ></app-custom-input>
+
+
+      <!--      <select [formControl]="currency">-->
+      <!--        <option value="EUR">EUR</option>-->
+      <!--        <option value="USD">USD</option>-->
+      <!--      </select>-->
+      <div class="submit-button-container">
+        <app-submit-button (submitForm)="submit()"></app-submit-button>
+      </div>
+
+
     </form>
   </section>
 </div>
