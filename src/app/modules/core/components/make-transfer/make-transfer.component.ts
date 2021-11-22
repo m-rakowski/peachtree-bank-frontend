@@ -2,18 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewTransferModalComponent } from '../review-transfer-modal/review-transfer-modal.component';
-import { filter, Subject, switchMap, takeUntil } from 'rxjs';
+import { filter, Subject, takeUntil } from 'rxjs';
 import {
   conditionalValidator,
   notEnoughBalanceValidator,
 } from './transfer-amount-validator';
-import {
-  selectAccount,
-  selectTransfers,
-} from '../../../../store/selectors/transfer.selectors';
+import { selectAccount } from '../../../../store/selectors/transfer.selectors';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../store/model/app-state';
-import { addTransferAction } from '../../../../store/actions/transfer.actions';
+import { executeTransferAction } from '../../../../store/actions/transfer.actions';
 
 @Component({
   selector: 'app-make-transfer',
@@ -48,7 +45,7 @@ export class MakeTransferComponent implements OnInit {
         .pipe(filter(Boolean))
         .subscribe(() => {
           this.store.dispatch(
-            addTransferAction({ transferDto: this.formGroup.value })
+            executeTransferAction({ transferDto: this.formGroup.value })
           );
           this.formGroup.get('toAccount')?.reset();
           this.formGroup.get('amount.amount')?.patchValue(0.01);

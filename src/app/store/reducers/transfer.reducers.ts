@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import {
-  addTransferAction,
-  addTransferSuccessAction,
+  executeTransferSuccessAction,
   loadAllTransfersSuccessAction,
 } from '../actions/transfer.actions';
 import { AccountAmountCurrency } from '../../modules/core/models/account-amount-currency';
@@ -19,14 +18,10 @@ export interface TransfersState {
   transfers: Transfer[];
   account: AccountAmountCurrency;
 }
+
 export const transfersReducers = createReducer<TransfersState>(
   initialState,
-  on(addTransferAction, (state, action) => {
-    return {
-      ...state,
-    };
-  }),
-  on(addTransferSuccessAction, (state, action) => {
+  on(executeTransferSuccessAction, (state, action) => {
     return {
       ...state,
       transfers: [...state.transfers, action.transfer],

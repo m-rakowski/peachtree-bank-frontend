@@ -2,26 +2,24 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { TransferActionsUnion } from '../actions/transfer.actions';
-import {forkJoin, of} from 'rxjs';
-import {TransferService} from "../../modules/core/services/transfer.service";
-import {AccountService} from "../../modules/core/services/account.service";
-import {MockedBackendService} from "../../modules/core/services/mocked-backend.service";
+import { forkJoin, of } from 'rxjs';
+import { TransferService } from '../../modules/core/services/transfer.service';
+import { AccountService } from '../../modules/core/services/account.service';
 
 @Injectable()
 export class TransferEffects {
-  addTransfer$ = createEffect(() =>
+  executeTransfer$ = createEffect(() =>
     this.actions$.pipe(
-      ofType('[Transfer] addTransferAction'),
+      ofType('[Transfer] executeTransferAction'),
       mergeMap((action) => {
-        console.log('[Transfer] addTransferAction', action.transferDto);
-        return this.transferService.addTransfer(action.transferDto).pipe(
+        return this.transferService.executeTransfer(action.transferDto).pipe(
           map((addedTransfer) => {
-            console.log(addedTransfer)
-            return ({
-            type: '[Transfer] addTransferSuccessAction',
-            transfer: addedTransfer.transfer,
-            account: addedTransfer.account,
-          })})
+            return {
+              type: '[Transfer] executeTransferSuccessAction',
+              transfer: addedTransfer.transfer,
+              account: addedTransfer.account,
+            };
+          })
         );
       })
     )
@@ -30,23 +28,26 @@ export class TransferEffects {
     this.actions$.pipe(
       ofType('[Transfer] loadAllTransfersAction'),
       mergeMap(() => {
-        return forkJoin([this.transferService.getAll(),this.accountService.getAccount()]).pipe(
+        return forkJoin([
+          this.transferService.getAll(),
+          this.accountService.getAccount(),
+        ]).pipe(
           map(([transfers, account]) => ({
             type: '[Transfer] loadAllTransfersSuccessAction',
             transfers: transfers,
-            account: account
+            account: account,
           })),
-          catchError(() => of({ type: '[Transfer] loadAllTransfersErrorAction' }))
+          catchError(() =>
+            of({ type: '[Transfer] loadAllTransfersErrorAction' })
+          )
         );
       })
     )
   );
 
-
   constructor(
     private actions$: Actions<TransferActionsUnion>,
     private transferService: TransferService,
-    private accountService: AccountService,
-    private mockedBackendService: MockedBackendService
+    private accountService: AccountService
   ) {}
 }
