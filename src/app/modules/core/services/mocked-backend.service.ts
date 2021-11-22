@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Transfer } from '../../../../mock-data/transfer.model';
 import { AccountAmountCurrency } from '../models/account-amount-currency';
 import { TransferDto } from '../models/transfer';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { transactions } from '../../../../mock-data/transactions';
 
 @Injectable({
@@ -11,6 +11,7 @@ import { transactions } from '../../../../mock-data/transactions';
 })
 export class MockedBackendService {
   constructor(private httpClient: HttpClient) {}
+
   private _transfers: Transfer[] = [];
 
   get transfers(): Observable<Transfer[]> {

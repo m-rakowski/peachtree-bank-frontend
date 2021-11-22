@@ -3,12 +3,12 @@ import { Transfer } from '../../../mock-data/transfer.model';
 import { TransferDto } from '../../modules/core/models/transfer';
 import { AccountAmountCurrency } from '../../modules/core/models/account-amount-currency';
 
-export const addTransferAction = createAction(
-  '[Transfer] addTransferAction',
+export const executeTransferAction = createAction(
+  '[Transfer] executeTransferAction',
   props<{ transferDto: TransferDto }>()
 );
-export const addTransferSuccessAction = createAction(
-  '[Transfer] addTransferSuccessAction',
+export const executeTransferSuccessAction = createAction(
+  '[Transfer] executeTransferSuccessAction',
   props<{ transfer: Transfer; account: AccountAmountCurrency }>()
 );
 export const loadAllTransfersAction = createAction(
@@ -22,8 +22,8 @@ export const loadAllTransfersSuccessAction = createAction(
   }>()
 );
 const all = union({
-  addTransferAction,
-  addTransferSuccessAction,
+  executeTransferAction,
+  executeTransferSuccessAction,
   loadAllTransfersAction,
   loadAllTransfersSuccessAction,
 });

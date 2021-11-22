@@ -8,6 +8,7 @@ import { MockedBackendService } from './mocked-backend.service';
 })
 export class AccountService {
   constructor(private mockedBackendService: MockedBackendService) {}
+
   getAccount(): Observable<AccountAmountCurrency> {
     return this.mockedBackendService.getAccount();
   }
