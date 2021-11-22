@@ -23,6 +23,18 @@ import { addTransferAction } from '../../../../store/actions/transfer.actions';
 export class MakeTransferComponent implements OnInit {
   formGroup: FormGroup;
 
+  amountFieldValidators = [
+    Validators.required,
+    Validators.min(0.01),
+    conditionalValidator(
+      () =>
+        this.formGroup.get('fromAccount.amount')?.value -
+          this.formGroup.get('amount.amount')?.value <
+        -500,
+      Validators.compose([notEnoughBalanceValidator()])
+    ),
+  ];
+
   constructor(private store: Store<AppState>, private matDialog: MatDialog) {
     this.setUpForm();
   }
@@ -50,11 +62,8 @@ export class MakeTransferComponent implements OnInit {
           this.store.dispatch(
             addTransferAction({ transferDto: this.formGroup.value })
           );
-          // @ts-ignore
-          this.formGroup.get('toAccount').reset();
-          // @ts-ignore
+          this.formGroup.get('toAccount')?.reset();
           this.formGroup.get('amount.amount')?.patchValue(0.01);
-          // @ts-ignore
           this.formGroup.get('amount.currencyCode')?.patchValue('EUR');
         });
     } else {
@@ -70,25 +79,22 @@ export class MakeTransferComponent implements OnInit {
       }),
       toAccount: new FormControl(null, [Validators.required]),
       amount: new FormGroup({
-        amount: new FormControl(0.01, [
-          Validators.required,
-          Validators.min(0.01),
-
-          // TODO: fix conditional validation
-          // conditionalValidator(
-          //   () => this.formGroup.get('fromAccount.amount').value < 500,
-          //   Validators.compose([notEnoughBalanceValidator()])
-          // ),
-        ]),
+        amount: new FormControl(0.01, this.amountFieldValidators),
         currencyCode: new FormControl('EUR'),
       }),
     });
 
     this.formGroup.get('fromAccount')?.disable();
-    // @ts-ignore
-    this.formGroup.get('fromAccount').valueChanges.subscribe((value) => {
-      // @ts-ignore
-      this.formGroup.get('amount').updateValueAndValidity();
+    this.formGroup.get('fromAccount')?.valueChanges.subscribe((value) => {
+      this.formGroup
+        .get('amount.amount')
+        ?.valueChanges.pipe(takeUntil(this.onDestroySubject))
+        .subscribe(() => {
+          this.formGroup
+            .get('amount')
+            ?.setValidators(this.amountFieldValidators);
+          this.formGroup.get('amount')?.updateValueAndValidity();
+        });
     });
   }
 

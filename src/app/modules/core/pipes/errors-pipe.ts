@@ -12,7 +12,7 @@ export class ErrorsPipe implements PipeTransform {
     this.errorTranslations.set('pattern', 'Incorrect number');
     this.errorTranslations.set(
       'notEnoughBalance',
-      'There is not enough balance'
+      'The balance has to stay above -500'
     );
   }
 
