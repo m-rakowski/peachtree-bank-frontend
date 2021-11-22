@@ -23,18 +23,6 @@ import { addTransferAction } from '../../../../store/actions/transfer.actions';
 export class MakeTransferComponent implements OnInit {
   formGroup: FormGroup;
 
-  amountFieldValidators = [
-    Validators.required,
-    Validators.min(0.01),
-    conditionalValidator(
-      () =>
-        this.formGroup.get('fromAccount.amount')?.value -
-          this.formGroup.get('amount.amount')?.value <
-        -500,
-      Validators.compose([notEnoughBalanceValidator()])
-    ),
-  ];
-
   constructor(private store: Store<AppState>, private matDialog: MatDialog) {
     this.setUpForm();
   }
@@ -85,20 +73,28 @@ export class MakeTransferComponent implements OnInit {
     });
 
     this.formGroup.get('fromAccount')?.disable();
-    this.formGroup.get('fromAccount')?.valueChanges.subscribe((value) => {
-      this.formGroup
-        .get('amount.amount')
-        ?.valueChanges.pipe(takeUntil(this.onDestroySubject))
-        .subscribe(() => {
-          this.formGroup
-            .get('amount')
-            ?.setValidators(this.amountFieldValidators);
-          this.formGroup.get('amount')?.updateValueAndValidity();
-        });
-    });
+    this.formGroup
+      .get('amount.amount')
+      ?.valueChanges.pipe(takeUntil(this.onDestroySubject))
+      .subscribe(() => {
+        this.formGroup.get('amount')?.setValidators(this.amountFieldValidators);
+        this.formGroup.get('amount')?.updateValueAndValidity();
+      });
   }
 
   ngOnDestroy(): void {
     this.onDestroySubject.next(null);
   }
+
+  private amountFieldValidators = [
+    Validators.required,
+    Validators.min(0.01),
+    conditionalValidator(
+      () =>
+        this.formGroup.get('fromAccount.amount')?.value -
+          this.formGroup.get('amount.amount')?.value <
+        -500,
+      Validators.compose([notEnoughBalanceValidator()])
+    ),
+  ];
 }
