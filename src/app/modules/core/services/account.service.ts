@@ -1,26 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AccountAmountCurrency } from '../models/account-amount-currency';
+import { MockedBackendService } from './mocked-backend.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
-  constructor(private httpClient: HttpClient) {}
-
+  constructor(private mockedBackendService: MockedBackendService) {}
   getAccount(): Observable<AccountAmountCurrency> {
-    return this.httpClient.get<AccountAmountCurrency>('/api/account');
-  }
-
-  send(amount: AccountAmountCurrency): Observable<any> {
-    return this.getAccount().pipe(
-      switchMap((val) =>
-        this.httpClient.put('/api/account', {
-          amount: Number((val.amount - amount.amount).toFixed(2)),
-          currencyCode: val.currencyCode,
-        })
-      )
-    );
+    return this.mockedBackendService.getAccount();
   }
 }

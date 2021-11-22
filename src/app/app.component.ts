@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalStateService } from './modules/core/services/global-state.service';
+import { MockedBackendService } from './modules/core/services/mocked-backend.service';
+import { Transfer } from '../mock-data/transfer.model';
+import { Store } from '@ngrx/store';
+import { loadAllTransfersAction } from './store/actions/transfer.actions';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +10,13 @@ import { GlobalStateService } from './modules/core/services/global-state.service
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private globalStateService: GlobalStateService) {}
+  constructor(
+    private store: Store<Transfer>,
+    private mockedBackend: MockedBackendService
+  ) {}
 
-  ngOnInit() {
-    this.globalStateService.updateTransfers().subscribe();
-    this.globalStateService.updateAccount().subscribe();
+  async ngOnInit() {
+    await this.mockedBackend.initDb();
+    this.store.dispatch(loadAllTransfersAction());
   }
 }

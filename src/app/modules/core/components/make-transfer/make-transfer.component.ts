@@ -2,12 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewTransferModalComponent } from '../review-transfer-modal/review-transfer-modal.component';
-import { filter, switchMap } from 'rxjs';
-import { GlobalStateService } from '../../services/global-state.service';
+import { filter, Subject, switchMap, takeUntil } from 'rxjs';
 import {
   conditionalValidator,
   notEnoughBalanceValidator,
 } from './transfer-amount-validator';
+import {
+  selectAccount,
+  selectTransfers,
+} from '../../../../store/selectors/transfer.selectors';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../../store/model/app-state';
+import { addTransferAction } from '../../../../store/actions/transfer.actions';
 
 @Component({
   selector: 'app-make-transfer',
@@ -17,17 +23,19 @@ import {
 export class MakeTransferComponent implements OnInit {
   formGroup: FormGroup;
 
-  constructor(
-    private matDialog: MatDialog,
-    private globalStateService: GlobalStateService
-  ) {
+  constructor(private store: Store<AppState>, private matDialog: MatDialog) {
     this.setUpForm();
   }
 
+  private onDestroySubject = new Subject();
+
   ngOnInit(): void {
-    this.globalStateService.account.subscribe((value) => {
-      this.formGroup.get('fromAccount')?.patchValue(value);
-    });
+    this.store
+      .select(selectAccount)
+      .pipe(takeUntil(this.onDestroySubject))
+      .subscribe((value) => {
+        this.formGroup.get('fromAccount')?.patchValue(value);
+      });
   }
 
   submit(): void {
@@ -37,21 +45,13 @@ export class MakeTransferComponent implements OnInit {
           data: this.formGroup.getRawValue(),
         })
         .afterClosed()
-        .pipe(
-          filter(Boolean),
-          switchMap(() =>
-            this.globalStateService.sendTransfer(this.formGroup.value)
-          ),
-          switchMap(() =>
-            this.globalStateService.sendAccount(
-              this.formGroup.get('amount')?.value
-            )
-          )
-        )
+        .pipe(filter(Boolean))
         .subscribe(() => {
+          this.store.dispatch(
+            addTransferAction({ transferDto: this.formGroup.value })
+          );
           // @ts-ignore
           this.formGroup.get('toAccount').reset();
-
           // @ts-ignore
           this.formGroup.get('amount.amount')?.patchValue(0.01);
           // @ts-ignore
@@ -90,5 +90,9 @@ export class MakeTransferComponent implements OnInit {
       // @ts-ignore
       this.formGroup.get('amount').updateValueAndValidity();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.onDestroySubject.next(null);
   }
 }
