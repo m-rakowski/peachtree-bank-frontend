@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GlobalStateService } from './global-state.service';
+import { MockedBackendService } from './mocked-backend.service';
 
-describe('GlobalStateService', () => {
-  let service: GlobalStateService;
+describe('MockedDbService', () => {
+  let service: MockedBackendService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GlobalStateService);
+    service = TestBed.inject(MockedBackendService);
   });
 
   it('should be created', () => {

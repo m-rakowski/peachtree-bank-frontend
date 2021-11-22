@@ -3,6 +3,8 @@ import { Transfer } from '../../../../mock-data/transfer.model';
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { TransferDto } from '../models/transfer';
+import {MockedBackendService} from "./mocked-backend.service";
+import {AccountAmountCurrency} from "../models/account-amount-currency";
 
 @Injectable({
   providedIn: 'root',
@@ -10,42 +12,14 @@ import { TransferDto } from '../models/transfer';
 export class TransferService {
   transfers: Transfer[] = [];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+              private mockedBackendService: MockedBackendService) {}
 
   getAll(): Observable<Transfer[]> {
-    return this.httpClient
-      .get<Transfer[]>('/api/transfers')
-      .pipe(
-        map((items) =>
-          items.sort(
-            (a, b) =>
-              new Date(b.dates.valueDate).getTime() -
-              new Date(a.dates.valueDate).getTime()
-          )
-        )
-      );
+    return this.mockedBackendService.getAllTransfers();
   }
 
-  send(value: TransferDto): Observable<any> {
-    const newTransfer: Transfer = {
-      dates: {
-        valueDate: new Date().getTime(),
-      },
-      categoryCode: '#fbbb1b',
-      transaction: {
-        type: 'Online Transfer',
-        creditDebitIndicator: 'indicator',
-        amountCurrency: {
-          amount: -1 * value.amount.amount,
-          currencyCode: value.amount.currencyCode,
-        },
-      },
-      merchant: {
-        name: value.toAccount,
-        accountNumber: 'my account number',
-      },
-    };
-
-    return this.httpClient.post('/api/transfers', newTransfer);
+  addTransfer(value: TransferDto): Observable<{ transfer: Transfer, account: AccountAmountCurrency }> {
+    return this.mockedBackendService.postTransfer(value);
   }
 }
