@@ -26,7 +26,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '82.02',
+        amount: 82.02,
         currencyCode: 'EUR',
       },
       type: 'Card Payment',
@@ -44,7 +44,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '84.64',
+        amount: 84.64,
         currencyCode: 'EUR',
       },
       type: 'Card Payment',
@@ -62,7 +62,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '84.76',
+        amount: 84.76,
         currencyCode: 'EUR',
       },
       type: 'Card Payment',
@@ -80,7 +80,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '22.10',
+        amount: 22.1,
         currencyCode: 'EUR',
       },
       type: 'Online Transfer',
@@ -98,7 +98,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '46.25',
+        amount: 46.25,
         currencyCode: 'EUR',
       },
       type: 'Card Payment',
@@ -116,7 +116,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '19.72',
+        amount: 19.72,
         currencyCode: 'EUR',
       },
       type: 'Online Transfer',
@@ -134,7 +134,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '68.87',
+        amount: 68.87,
         currencyCode: 'EUR',
       },
       type: 'Transaction',
@@ -152,7 +152,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '52.36',
+        amount: 52.36,
         currencyCode: 'EUR',
       },
       type: 'Transaction',
@@ -170,7 +170,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '75.93',
+        amount: 75.93,
         currencyCode: 'EUR',
       },
       type: 'Card Payment',
@@ -188,7 +188,7 @@ export const transactions: Transfer[] = [
     },
     transaction: {
       amountCurrency: {
-        amount: '142.95',
+        amount: 142.95,
         currencyCode: 'EUR',
       },
       type: 'Online Transfer',
