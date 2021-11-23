@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Transfer } from '../../../../mock-data/transfer.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { TransferDto } from '../models/transfer';
 import { MockedBackendService } from './mocked-backend.service';
 import { AccountAmountCurrency } from '../models/account-amount-currency';
@@ -10,10 +9,7 @@ import { AccountAmountCurrency } from '../models/account-amount-currency';
   providedIn: 'root',
 })
 export class TransferService {
-  constructor(
-    private httpClient: HttpClient,
-    private mockedBackendService: MockedBackendService
-  ) {}
+  constructor(private mockedBackendService: MockedBackendService) {}
 
   getAll(): Observable<Transfer[]> {
     return this.mockedBackendService.getAllTransfers();
