@@ -3,7 +3,7 @@ export interface Dates {
 }
 
 export interface AmountCurrency {
-  amount: string | number;
+  amount: number;
   currencyCode: string;
 }
 
