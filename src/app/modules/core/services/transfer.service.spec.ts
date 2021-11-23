@@ -26,7 +26,6 @@ describe('TransferService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
       providers: [
         {
           provide: MockedBackendService,
