@@ -1,8 +1,12 @@
-@import "~src/assets/styles/vars";
+@import "~bootstrap/dist/css/bootstrap.css";
 @import "buttons";
 @import "inputs";
 @import "panels";
 @import "modals";
+@import "lineicons";
+
+@import "~src/assets/styles/vars";
+@import "_customize_bb-ui_module";
 
 body,
 html {
@@ -16,35 +20,15 @@ html {
   color: $almostBlack;
 }
 
-.spacer {
-  flex-grow: 1;
-}
+body {
+  .mat-dialog-container {
+    padding: 0;
+  }
 
-.merchant-details {
-  flex: 2;
-  padding: 1rem;
-}
-
-.make-transfer-form * {
-  display: block;
-}
-
-.logo img {
-  width: 100%;
-  height: auto;
-}
-
-app-footer footer {
-  // bugfix: too much space around app-footer causing a scrollbar to show;
-  // a cleaner way would be to change "width: 100vw" to % in footer component but I am not allowed to touch the bb-ui module
-  width: 100% !important;
-}
-
-input[data-test-hook="filterInput"] {
-  box-sizing: border-box;
-  width: 100%;
   @media only screen and (min-width: 40rem) {
-    width: 50%;
+    .cdk-overlay-pane {
+      min-width: 30rem;
+    }
   }
 }
 
@@ -60,10 +44,6 @@ body {
   }
 }
 
-.app-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: white;
-  border-top: 1px solid lighten($inputTextColor, 30%);
+.spacer {
+  flex-grow: 1;
 }

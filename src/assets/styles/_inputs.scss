@@ -21,7 +21,7 @@ input {
 }
 
 label {
-  margin: 0.9rem 0;
+  margin: 0 0 0.4rem 0;
   font-weight: 300;
   font-size: 1.1rem;
 }
@@ -29,7 +29,7 @@ label {
 .error-message {
   color: $errorColor;
   margin: 0.4rem 0;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   white-space: pre-wrap;
 }
 

@@ -1,12 +1,9 @@
 @import "../../../../../assets/styles/vars";
 
-:host {
-  min-height: 5rem;
-}
-
 input {
   width: 100%;
   box-sizing: border-box;
+  border-radius: 0 3px 3px 0;
 }
 
 select {
@@ -21,8 +18,4 @@ select {
 
   color: $almostBlack;
   font-family: "Roboto", Helvetica, sans-serif;
-}
-
-input {
-  border-radius: 0 3px 3px 0;
 }
