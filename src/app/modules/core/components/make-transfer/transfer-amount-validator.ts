@@ -7,7 +7,7 @@ import {
 
 export function conditionalValidator(
   predicate: () => boolean,
-  validator: any
+  validator: ValidatorFn
 ): any {
   return (formControl: FormControl) => {
     if (!formControl.parent) {

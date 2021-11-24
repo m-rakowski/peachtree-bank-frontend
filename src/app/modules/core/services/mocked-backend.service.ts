@@ -63,7 +63,7 @@ export class MockedBackendService {
     return of({ transfer: newTransfer, account: this._account });
   }
 
-  initDb(): Promise<any> {
+  initDb(): Promise<void> {
     return this.httpClient
       .get<Transfer[]>('/api/transfers')
       .toPromise()

@@ -7,16 +7,13 @@ import { getCurrencySymbol } from '@angular/common';
   templateUrl: './custom-currency-input.component.html',
   styleUrls: ['./custom-currency-input.component.scss'],
 })
-export class CustomCurrencyInputComponent implements OnInit {
+export class CustomCurrencyInputComponent {
   @Input() amountControl: FormControl;
   @Input() currencyControl: FormControl;
   @Input() placeholder: string = '';
   @Input() fieldName: string;
   @Input() fieldTitle: string;
+
   currencyCodes = ['EUR'];
   getCurrencySymbol = getCurrencySymbol;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }
