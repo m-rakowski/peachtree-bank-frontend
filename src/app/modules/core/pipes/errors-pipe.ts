@@ -9,10 +9,9 @@ export class ErrorsPipe implements PipeTransform {
   constructor() {
     this.errorTranslations.set('required', 'This field is required');
     this.errorTranslations.set('min', 'Value has to be greater than 0');
-    this.errorTranslations.set('pattern', 'Incorrect number');
     this.errorTranslations.set(
       'notEnoughBalance',
-      'The balance has to stay above -500'
+      'There is not enough balance'
     );
   }
 
