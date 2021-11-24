@@ -57,7 +57,7 @@ export class MockedBackendService {
 
     this._account = {
       ...this._account,
-      amount: this._account.amount - value.amount.amount,
+      amount: Number((this._account.amount - value.amount.amount).toFixed(2)),
     };
 
     return of({ transfer: newTransfer, account: this._account });
