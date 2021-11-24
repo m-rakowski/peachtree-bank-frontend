@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  ValidatorFn,
+} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewTransferModalComponent } from '../review-transfer-modal/review-transfer-modal.component';
 import { filter, Subject, takeUntil } from 'rxjs';
@@ -20,13 +25,12 @@ import { executeTransferAction } from '../../../../store/actions/transfer.action
 export class MakeTransferComponent implements OnInit {
   formGroup: FormGroup;
 
-  constructor(private store: Store<AppState>, private matDialog: MatDialog) {
-    this.setUpForm();
-  }
+  constructor(private store: Store<AppState>, private matDialog: MatDialog) {}
 
   private onDestroySubject = new Subject();
 
   ngOnInit(): void {
+    this.setUpForm();
     this.store
       .select(selectAccount)
       .pipe(takeUntil(this.onDestroySubject))
@@ -83,7 +87,7 @@ export class MakeTransferComponent implements OnInit {
     this.onDestroySubject.next(null);
   }
 
-  private amountFieldValidators = [
+  private amountFieldValidators: ValidatorFn | ValidatorFn[] | null = [
     Validators.required,
     Validators.min(0.01),
     conditionalValidator(

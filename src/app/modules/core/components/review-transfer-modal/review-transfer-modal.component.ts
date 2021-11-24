@@ -9,15 +9,13 @@ import { AccountService } from '../../services/account.service';
   templateUrl: './review-transfer-modal.component.html',
   styleUrls: ['./review-transfer-modal.component.scss'],
 })
-export class ReviewTransferModalComponent implements OnInit {
+export class ReviewTransferModalComponent {
   constructor(
     private itemService: TransferService,
     private accountService: AccountService,
     private dialogRef: MatDialogRef<ReviewTransferModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TransferDto
   ) {}
-
-  ngOnInit(): void {}
 
   submit() {
     this.dialogRef.close(true);
