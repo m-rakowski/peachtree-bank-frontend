@@ -6,6 +6,7 @@
   [ngClass]="{ hasErrors: control?.errors && this.control?.touched }"
   [placeholder]="placeholder"
   type="text"
+  data-test-hook="customInput"
 />
 <p *ngIf="control?.errors && this.control?.touched" class="error-message">
   {{ control.errors | errorsPipe }}

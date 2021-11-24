@@ -1,12 +1,22 @@
 # Peachtree Bank: Make a Transaction
 
 ### How to run?
+Open up three terminals. In the first one,
+**run the app** by entering the following commands:
 ```
 npm install
 npm start
-npm run json-server
 ```
-
+In order to provide a safety net during development,
+keep **Karma unit tests** going by executing the following
+in the second terminal
+```
+npm test
+```
+The project comes with an **end-to-end test in Cypress**. In order to execute it enter the following in the third terminal:
+```
+npm run cypress:open
+```
 ### User story #1
 
 _As a product owner, I should see a consistent layout where I can view the header with my bank's logo and the footer._
