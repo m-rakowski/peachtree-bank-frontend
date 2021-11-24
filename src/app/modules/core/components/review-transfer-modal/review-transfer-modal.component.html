@@ -11,15 +11,22 @@
 
   <dl>
     <dt>It will be sent to account:</dt>
-    <dd>{{ data.toAccount }}</dd>
+    <dd data-test-hook="reviewTransferModal.toAccount">{{ data.toAccount }}</dd>
 
     <dt>With the amount of:</dt>
-    <dd>{{ data.amount.amount | currency: data.amount.currencyCode }}</dd>
+    <dd data-test-hook="reviewTransferModal.amount">
+      {{ data.amount.amount | currency: data.amount.currencyCode }}
+    </dd>
   </dl>
 </section>
 <footer class="modal-footer">
   <button class="btn btn-secondary" mat-dialog-close>Close</button>
-  <button (click)="submit()" class="btn btn-primary" mat-dialog-close>
+  <button
+    (click)="submit()"
+    class="btn btn-primary"
+    mat-dialog-close
+    data-test-hook="reviewTransferModal.sendButton"
+  >
     Send transfer
   </button>
 </footer>
