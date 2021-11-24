@@ -22,6 +22,7 @@ input[data-test-hook="filterInput"] {
     // bugfix: too much space around app-footer causing a scrollbar to show;
     // a cleaner way would be to change "width: 100vw" to % in footer component but I am not allowed to touch the bb-ui module
     width: 100% !important;
+    padding: 1rem;
   }
 }
 
