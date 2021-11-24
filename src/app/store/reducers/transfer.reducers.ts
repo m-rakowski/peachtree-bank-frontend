@@ -31,7 +31,7 @@ export const transfersReducers = createReducer<TransfersState>(
   on(loadAllTransfersSuccessAction, (state, action) => {
     const newState = {
       ...state,
-      transfers: [...state.transfers, ...action.transfers],
+      transfers: [...action.transfers],
       account: action.account,
     };
     return newState;
