@@ -17,6 +17,11 @@ The project comes with an **end-to-end test in Cypress**. In order to execute it
 ```
 npm run cypress:open
 ```
+
+### Demo
+https://user-images.githubusercontent.com/15091521/143335976-831d33a3-8ea2-46e3-899f-33282f5cee36.mp4
+
+
 ### User story #1
 
 _As a product owner, I should see a consistent layout where I can view the header with my bank's logo and the footer._
